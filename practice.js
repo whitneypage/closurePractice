@@ -62,13 +62,25 @@ var callFriend = function(){
 
 
 //Next Problem
-var func1 = function(func2) {
+var alertHello = function () {
+    alert("Hello");
+}
+   
+
+var func1 = function(otherFn, N) {
   return function() {
-    return func1();
+    if (N) {
+      otherFn();
+      N--;
+  } else {
+    console.log('STAHHP');
   }
 }
+}
 
+var test = func1(alertHello, 3);
 
+test();
 /*
   Write a function that accepts another function as it's first argument and returns a new function
   (which invokes the original function that was passed in) that can only ever be executed once.
